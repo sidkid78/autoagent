@@ -1,0 +1,510 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(0.02 0.02 240);
+  --foreground: oklch(0.98 0.02 240);
+  --card: oklch(0.05 0.03 240);
+  --card-foreground: oklch(0.95 0.02 240);
+  --popover: oklch(0.05 0.03 240);
+  --popover-foreground: oklch(0.95 0.02 240);
+  --primary: oklch(0.7 0.25 260);
+  --primary-foreground: oklch(0.05 0.03 240);
+  --secondary: oklch(0.15 0.05 240);
+  --secondary-foreground: oklch(0.9 0.02 240);
+  --muted: oklch(0.1 0.03 240);
+  --muted-foreground: oklch(0.6 0.05 240);
+  --accent: oklch(0.2 0.08 260);
+  --accent-foreground: oklch(0.9 0.02 240);
+  --destructive: oklch(0.6 0.25 20);
+  --border: oklch(0.15 0.05 240);
+  --input: oklch(0.12 0.04 240);
+  --ring: oklch(0.7 0.25 260);
+  --chart-1: oklch(0.7 0.25 260);
+  --chart-2: oklch(0.65 0.22 180);
+  --chart-3: oklch(0.6 0.2 300);
+  --chart-4: oklch(0.75 0.28 80);
+  --chart-5: oklch(0.68 0.24 40);
+  --sidebar: oklch(0.03 0.02 240);
+  --sidebar-foreground: oklch(0.9 0.02 240);
+  --sidebar-primary: oklch(0.7 0.25 260);
+  --sidebar-primary-foreground: oklch(0.05 0.03 240);
+  --sidebar-accent: oklch(0.15 0.05 240);
+  --sidebar-accent-foreground: oklch(0.9 0.02 240);
+  --sidebar-border: oklch(0.15 0.05 240);
+  --sidebar-ring: oklch(0.7 0.25 260);
+}
+
+.dark {
+  --background: oklch(0.02 0.02 240);
+  --foreground: oklch(0.98 0.02 240);
+  --card: oklch(0.05 0.03 240);
+  --card-foreground: oklch(0.95 0.02 240);
+  --popover: oklch(0.05 0.03 240);
+  --popover-foreground: oklch(0.95 0.02 240);
+  --primary: oklch(0.7 0.25 260);
+  --primary-foreground: oklch(0.05 0.03 240);
+  --secondary: oklch(0.15 0.05 240);
+  --secondary-foreground: oklch(0.9 0.02 240);
+  --muted: oklch(0.1 0.03 240);
+  --muted-foreground: oklch(0.6 0.05 240);
+  --accent: oklch(0.2 0.08 260);
+  --accent-foreground: oklch(0.9 0.02 240);
+  --destructive: oklch(0.6 0.25 20);
+  --border: oklch(0.15 0.05 240);
+  --input: oklch(0.12 0.04 240);
+  --ring: oklch(0.7 0.25 260);
+  --chart-1: oklch(0.7 0.25 260);
+  --chart-2: oklch(0.65 0.22 180);
+  --chart-3: oklch(0.6 0.2 300);
+  --chart-4: oklch(0.75 0.28 80);
+  --chart-5: oklch(0.68 0.24 40);
+  --sidebar: oklch(0.03 0.02 240);
+  --sidebar-foreground: oklch(0.9 0.02 240);
+  --sidebar-primary: oklch(0.7 0.25 260);
+  --sidebar-primary-foreground: oklch(0.05 0.03 240);
+  --sidebar-accent: oklch(0.15 0.05 240);
+  --sidebar-accent-foreground: oklch(0.9 0.02 240);
+  --sidebar-border: oklch(0.15 0.05 240);
+  --sidebar-ring: oklch(0.7 0.25 260);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background: 
+      radial-gradient(ellipse at top, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom, rgba(255, 119, 198, 0.2) 0%, transparent 50%),
+      linear-gradient(135deg, var(--background) 0%, oklch(0.03 0.03 260) 100%);
+    background-attachment: fixed;
+  }
+}
+
+/* Mind-blowing animations and effects */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(120, 119, 198, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(120, 119, 198, 0.6), 0 0 60px rgba(120, 119, 198, 0.3); }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes matrix-rain {
+  0% { transform: translateY(-100%); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+@keyframes neural-pulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes hologram-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes data-stream {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.mind-blowing-card {
+  @apply relative overflow-hidden;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.1) 0%, 
+    rgba(255, 255, 255, 0.05) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mind-blowing-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 20px 60px rgba(120, 119, 198, 0.4),
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border-color: rgba(120, 119, 198, 0.5);
+}
+
+.mind-blowing-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.2), 
+    transparent);
+  transition: left 0.5s;
+}
+
+.mind-blowing-card:hover::before {
+  left: 100%;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, 
+    oklch(0.8 0.3 260) 0%, 
+    oklch(0.7 0.25 300) 50%, 
+    oklch(0.75 0.28 200) 100%);
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 3s ease infinite;
+}
+
+.neural-network-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.1;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(119, 255, 198, 0.3) 0%, transparent 50%);
+  animation: neural-pulse 4s ease-in-out infinite;
+}
+
+.hologram-effect {
+  position: relative;
+  animation: hologram-flicker 2s ease-in-out infinite;
+}
+
+.hologram-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 255, 0.1) 2px,
+    rgba(0, 255, 255, 0.1) 4px
+  );
+  pointer-events: none;
+}
+
+.data-stream {
+  position: relative;
+  overflow: hidden;
+}
+
+.data-stream::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    oklch(0.7 0.25 260), 
+    transparent);
+  animation: data-stream 2s linear infinite;
+}
+
+.matrix-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.05;
+}
+
+.floating-element {
+  animation: float 6s ease-in-out infinite;
+}
+
+.glow-on-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glow-on-hover:hover {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Text visibility improvements */
+.text-visible {
+  color: hsl(var(--foreground)) !important;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Better contrast for cards */
+.mind-blowing-card {
+  background: rgba(15, 15, 23, 0.95) !important;
+  border: 1px solid rgba(124, 119, 198, 0.3) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+/* Improved button text visibility */
+.cyber-button {
+  color: hsl(var(--foreground)) !important;
+  font-weight: 500 !important;
+}
+
+/* Better badge visibility */
+.hologram-effect {
+  background: rgba(30, 30, 46, 0.9) !important;
+  color: hsl(var(--foreground)) !important;
+  border-color: rgba(124, 119, 198, 0.4) !important;
+}
+
+/* Enhanced gradient text with better visibility */
+.gradient-text {
+  background: linear-gradient(135deg, 
+    oklch(0.85 0.3 260) 0%, 
+    oklch(0.8 0.25 300) 50%, 
+    oklch(0.85 0.28 200) 100%);
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 3s ease infinite;
+  font-weight: 600;
+}
+
+/* Fallback for gradient text */
+@supports not (-webkit-background-clip: text) {
+  .gradient-text {
+    color: oklch(0.8 0.3 260) !important;
+    background: none !important;
+    -webkit-text-fill-color: unset !important;
+  }
+}
+
+/* Better working memory panel visibility */
+.working-memory-panel {
+  background: rgba(15, 15, 23, 0.95) !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+/* Improved tab visibility */
+.tab-content {
+  color: hsl(var(--foreground)) !important;
+}
+
+/* Better input field visibility */
+.input-field {
+  background: rgba(30, 30, 46, 0.8) !important;
+  color: hsl(var(--foreground)) !important;
+  border-color: rgba(124, 119, 198, 0.3) !important;
+}
+
+/* Enhanced memory cards */
+.memory-card {
+  background: rgba(20, 20, 35, 0.9) !important;
+  color: hsl(var(--foreground)) !important;
+  border: 1px solid rgba(124, 119, 198, 0.2) !important;
+}
+
+/* Better context variables visibility */
+.context-variable {
+  color: hsl(var(--foreground)) !important;
+  background: rgba(25, 25, 40, 0.8) !important;
+}
+
+/* Ensure all text elements are visible */
+.card-content, .tab-content, .memory-usage, .progress-text {
+  color: hsl(var(--foreground)) !important;
+}
+
+/* Better progress bar visibility */
+.progress-bar {
+  background: rgba(30, 30, 46, 0.8) !important;
+}
+
+/* Enhanced badge contrast */
+.badge {
+  background: rgba(124, 119, 198, 0.2) !important;
+  color: hsl(var(--foreground)) !important;
+  border: 1px solid rgba(124, 119, 198, 0.4) !important;
+}
+
+/* Improved tab styling */
+.tabs-trigger {
+  color: hsl(var(--foreground)) !important;
+  background: rgba(20, 20, 35, 0.8) !important;
+}
+
+.tabs-trigger[data-state="active"] {
+  background: rgba(124, 119, 198, 0.3) !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+/* Better insight cards */
+.insight-card {
+  background: rgba(255, 193, 7, 0.1) !important;
+  border-left: 2px solid rgba(255, 193, 7, 0.6) !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+.cyber-button {
+  @apply relative overflow-hidden;
+  background: linear-gradient(135deg, 
+    oklch(0.7 0.25 260) 0%, 
+    oklch(0.6 0.2 280) 100%);
+  border: 1px solid oklch(0.8 0.3 260);
+  box-shadow: 
+    0 0 20px rgba(120, 119, 198, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cyber-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 0 30px rgba(120, 119, 198, 0.6),
+    0 10px 20px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.cyber-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.3), 
+    transparent);
+  transition: left 0.5s;
+}
+
+.cyber-button:hover::before {
+  left: 100%;
+}
+
+.neon-border {
+  border: 2px solid transparent;
+  background: linear-gradient(var(--background), var(--background)) padding-box,
+              linear-gradient(135deg, oklch(0.7 0.25 260), oklch(0.6 0.2 300)) border-box;
+  box-shadow: 0 0 20px rgba(120, 119, 198, 0.3);
+}
+
+.terminal-glow {
+  background: linear-gradient(135deg, 
+    rgba(0, 20, 0, 0.9) 0%, 
+    rgba(0, 40, 0, 0.8) 100%);
+  border: 1px solid rgba(0, 255, 0, 0.3);
+  box-shadow: 
+    0 0 20px rgba(0, 255, 0, 0.2),
+    inset 0 0 20px rgba(0, 255, 0, 0.1);
+}
+
+.code-editor-glow {
+  box-shadow: 
+    0 0 40px rgba(120, 119, 198, 0.3),
+    inset 0 0 40px rgba(120, 119, 198, 0.1);
+  border: 1px solid rgba(120, 119, 198, 0.3);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--muted);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, 
+    oklch(0.7 0.25 260) 0%, 
+    oklch(0.6 0.2 280) 100%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, 
+    oklch(0.8 0.3 260) 0%, 
+    oklch(0.7 0.25 280) 100%);
+}
+
+/* Selection styling */
+::selection {
+  background: oklch(0.7 0.25 260 / 0.3);
+  color: var(--foreground);
+}
+
+::-moz-selection {
+  background: oklch(0.7 0.25 260 / 0.3);
+  color: var(--foreground);
+}
